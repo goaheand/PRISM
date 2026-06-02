@@ -80,7 +80,7 @@ class RMSProp:
         self.param -= self.lr * grad * select_idx / np.sqrt(self.momentum + self._eps)
 
 
-class CubeAlarm:
+class Prism:
     def __init__(self, data_source: Union[pd.DataFrame, str]):
         self.token_other = 0
         self.token_nan = 2

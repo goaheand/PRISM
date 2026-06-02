@@ -4,11 +4,11 @@ import time
 import numpy as np
 import pandas as pd
 from loguru import logger
-from algorithm import CubeAlarm
+from algorithm import Prism
 from collections import defaultdict, OrderedDict
 
 
-class CubeAlarmSqueeze(CubeAlarm):
+class PrismSqueeze(Prism):
     def __init__(self, data_source: pd.DataFrame | str):
         super().__init__(data_source)
         self._threshold_abs_max = 5
@@ -178,7 +178,7 @@ if __name__ == '__main__':
         if len(anomaly_indices) < 10:
             continue
 
-        preds = CubeAlarmSqueeze(data_df)(anomaly_indices)
+        preds = PrismSqueeze(data_df)(anomaly_indices)
 
         result = f1_score(preds, labels[timestamp])
         for k, v in result.items():

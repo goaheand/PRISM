@@ -1,10 +1,10 @@
-# PRISM
+# Prism
 
-PRISM (**PR**ecision-driven **I**terative **S**earch for **M**ulti-dimensional root cause localization) is a root cause localization algorithm for multi-dimensional alarm data. Given a set of anomalous data points, PRISM identifies the attribute combinations (e.g., `region=Shanghai & service=payment`) that best explain the anomalies.
+Prism (**PR**ecision-driven **I**terative **S**earch for **M**ulti-dimensional root cause localization) is a root cause localization algorithm for multi-dimensional alarm data. Given a set of anomalous data points, Prism identifies the attribute combinations (e.g., `region=Shanghai & service=payment`) that best explain the anomalies.
 
 ## Method Overview
 
-PRISM formulates root cause localization as an optimization problem over attribute selection weights:
+Prism formulates root cause localization as an optimization problem over attribute selection weights:
 
 1. **Data Encoding** — Categorical attributes are integer-encoded and stored in a `Table` structure alongside value frequency statistics.
 2. **Distance Matrix Construction** — Pairwise distance matrices are computed between anomaly-anomaly and normal-anomaly data points across all attributes.
@@ -16,9 +16,9 @@ PRISM formulates root cause localization as an optimization problem over attribu
 
 ```
 .
-├── algorithm.py              # Core CubeAlarm class, Table, RMSProp optimizer
-├── experiment_nfc.py         # CubeAlarmNFC: variant with statistical noise filtering
-├── experiment_psqueeze.py    # CubeAlarmSqueeze: variant for PSqueeze benchmark
+├── algorithm.py              # Core Prism class, Table, RMSProp optimizer
+├── experiment_nfc.py         # PrismNFC: variant with statistical noise filtering
+├── experiment_psqueeze.py    # PrismSqueeze: variant for PSqueeze benchmark
 └── utils.py                  # Data I/O, sampling, and plotting utilities
 ```
 
@@ -35,10 +35,10 @@ PRISM formulates root cause localization as an optimization problem over attribu
 
 ```python
 import pandas as pd
-from experiment_nfc import CubeAlarmNFC
+from experiment_nfc import PrismNFC
 
 # Load from a preprocessed data directory
-model = CubeAlarmNFC("data/nfc/")
+model = PrismNFC("data/nfc/")
 
 # anomaly_index: list of row indices flagged as anomalous
 results = model(anomaly_index)

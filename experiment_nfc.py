@@ -1,12 +1,12 @@
 import numpy as np
 import pandas as pd
 from loguru import logger
-from algorithm import CubeAlarm
+from algorithm import Prism
 from collections import defaultdict
 from utils import load_data
 
 
-class CubeAlarmNFC(CubeAlarm):
+class PrismNFC(Prism):
     def __init__(self, data_source: pd.DataFrame | str):
         super().__init__(data_source)
         self._confidence_threshold = 0.9
@@ -230,7 +230,7 @@ if __name__ == '__main__':
     data_path = 'data/nfc/df.csv'
     anomaly_data_list = load_data('./data/label.json')
 
-    model = CubeAlarmNFC(data_path)
+    model = PrismNFC(data_path)
 
     results = defaultdict(list)
     sample_metrics = []  # 保存每个样本的指标
