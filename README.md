@@ -64,6 +64,12 @@ python experiment_psqueeze.py
 
 Both scripts compute micro-averaged Precision, Recall, and F1 over all test cases.
 
+### t-SNE Visualization on Public Benchmarks
+
+Below is a t-SNE projection of public benchmark datasets, illustrating how Prism's learned attribute representations separate anomalous patterns from normal ones in the embedding space:
+
+![t-SNE on public benchmarks](figures/tSNE_public.png)
+
 ## License
 
 MIT
